@@ -1,0 +1,72 @@
+<apex:page controller="SOQLExecutorController" doctype="html-5.0" sidebar="false" >
+    <style>
+    .pbTitle {
+        width: 100% !important;
+    }
+    .empty-column-content {
+        display: none;
+    }
+
+    .errorMsg {
+        font-weight: bold;
+        color: red;
+        font-size: 14pt;
+        text-align: center;
+     }
+
+     .tdColumn {
+        vertical-align: top;
+        height: 100% !important;
+        position: relative;
+     }
+
+    
+
+    .inputField {
+        font-weight: bold;
+    }
+
+    .column {
+        vertical-align: top;
+    }
+
+    .pageColumn {
+         line-height: 25px;
+     }
+
+    </style>
+    <apex:form >
+
+     <apex:pagemessages />
+        <table width="100%" border="0">
+            <tr>
+                <td  class="tdColumn">
+                    <apex:pageblock id="searchParamsBlock" title="Search for records">
+                        <apex:pageblocksection columns="2" collapsible="false" showheader="false" title="">         
+                                <apex:inputTextArea value="{!query}" label="{!queryLabel}"  style="width: 500px;"/>
+                        </apex:pageblocksection>
+
+                        <apex:commandbutton value="Search" title="Search" action="{!executeQuery}" style="width: 70px;" />
+                    </apex:pageblock>
+                </td>
+             </tr>
+            
+            </table>
+            <table width="100%" border="0">
+            <tr>
+                <td class="resultsBlock">
+                        <apex:pageBlock id="pb" rendered="{!recordsFound}" title="Results: {!searchResultSize} Records">
+                                <apex:pageblocktable value="{!searchResults}" var="record" >
+                                     <apex:column value="{!record.Id}" />
+                                     <apex:column value="{!record.Name}" />
+                                    <apex:column value="{!record.Phone}" />
+                                </apex:pageblocktable>
+                        </apex:pageBlock>
+
+                </td>
+            </tr>
+
+
+        </table>
+    </apex:form>
+</apex:page>
