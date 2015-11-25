@@ -1,6 +1,5 @@
 @isTest
 public class ResourceHelperTests{
-/*
 	@isTest
 	static void checkIfResourceIsFired_ValidExceptionShouldBeThrown(){
 		Resource__c firedGuy = createResource();
@@ -178,5 +177,4 @@ public class ResourceHelperTests{
 
 		insert timelogs;
 	}
-*/
 }
